@@ -1,0 +1,446 @@
+/* 
+ * userChrome.css - Betterbird Dark Glassmorphic Theme
+ * Modern translucent design with excellent legibility
+ */
+
+:root {
+  /* === DARK GLASS PALETTE === */
+  --glass-dark-base: rgba(20, 20, 25, 0.75) !important;
+  --glass-dark-elevated: rgba(30, 30, 38, 0.85) !important;
+  --glass-dark-card: rgba(40, 40, 50, 0.70) !important;
+  --glass-dark-card-hover: rgba(50, 50, 62, 0.80) !important;
+  --glass-dark-selected: rgba(60, 60, 75, 0.90) !important;
+  --glass-dark-header: rgba(25, 25, 32, 0.80) !important;
+
+  /* === GLASS EFFECTS === */
+  --glass-blur: blur(40px) saturate(140%) brightness(1.1) !important;
+  --glass-border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  --glass-glow: 0 0 20px rgba(100, 150, 255, 0.15) !important;
+
+  /* === TEXT & ACCENTS === */
+  --text-primary: #e8e8f0 !important;
+  --text-secondary: #b0b0c0 !important;
+  --text-dim: #808090 !important;
+  --accent-blue: #4a9eff !important;
+  --accent-glow: rgba(74, 158, 255, 0.3) !important;
+
+  /* === OVERRIDES === */
+  --background-primary: transparent !important;
+  --background-secondary: transparent !important;
+  --sidebar-background-color: transparent !important;
+  --sidebar-text-color: var(--text-primary) !important;
+  --toolbar-bgcolor: transparent !important;
+  --tab-line-color: transparent !important;
+  --splitter-color: rgba(255, 255, 255, 0.05) !important;
+  --tree-view-bg: transparent !important;
+}
+
+/* ========== GLOBAL RESET ========== */
+#messengerWindow,
+#messengerBox,
+#mail-toolbox,
+#tabmail-container,
+#tabpanelcontainer,
+#messengerBody,
+.vbox,
+.hbox,
+box,
+toolbox,
+toolbar,
+#mail3PaneTab1,
+#mail3PaneTabBrowser1,
+#calendarTabPanel,
+#chatTabPanel {
+  background-color: transparent !important;
+  appearance: none !important;
+  border: none !important;
+}
+
+/* Global text styling */
+* {
+  color: var(--text-primary) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* ========== MAIN GLASS ENGINE ========== */
+#messagepane,
+#messagepane>body,
+#messagepanebox,
+#messageBrowser,
+#threadPane,
+#messagePane,
+#calSidebar,
+#calendarDisplayBox,
+#today-pane-panel {
+  background-color: var(--glass-dark-base) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  border: var(--glass-border) !important;
+}
+
+#folderPane {
+  background-color: var(--glass-dark-elevated) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  border-right: var(--glass-border) !important;
+}
+
+/* ========== NAVIGATION & TOOLBARS ========== */
+#navigation-toolbox,
+#titlebar,
+#tabs-toolbar {
+  background-color: var(--glass-dark-header) !important;
+  backdrop-filter: blur(30px) saturate(140%) !important;
+  border-bottom: var(--glass-border) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+#unifiedToolbar {
+  background-color: var(--glass-dark-header) !important;
+  border-bottom: var(--glass-border) !important;
+  padding: 8px 12px !important;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Toolbar buttons */
+.button,
+.toolbarbutton-1 {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 8px !important;
+  color: var(--text-primary) !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.button:hover,
+.toolbarbutton-1:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Folder & Thread Pane Headers */
+#folderPaneHeaderBar,
+#folderPaneHeader,
+#calendarListHeader,
+.sidebar-panel-header,
+#threadPaneHeader,
+#threadTree treecol {
+  background-color: var(--glass-dark-header) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: var(--glass-border) !important;
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+}
+
+/* ========== SPACES TOOLBAR ========== */
+#spacesToolbar {
+  background-color: rgba(18, 18, 22, 0.85) !important;
+  backdrop-filter: blur(30px) saturate(130%) !important;
+  border-right: var(--glass-border) !important;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.spaces-toolbar-button {
+  background: transparent !important;
+  border-radius: 12px !important;
+  margin: 4px !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.spaces-toolbar-button:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  transform: scale(1.08) translateX(2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.spaces-toolbar-button.current {
+  background: linear-gradient(135deg, rgba(74, 158, 255, 0.25), rgba(100, 180, 255, 0.15)) !important;
+  box-shadow: 0 0 16px var(--accent-glow), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  border: 1px solid rgba(74, 158, 255, 0.4) !important;
+}
+
+/* ========== FOLDER PANE ========== */
+#folderTree,
+#calendar-list {
+  background: transparent !important;
+}
+
+li[is="folder-tree-row"]>.container,
+#calendar-list li {
+  background-color: transparent !important;
+  border-radius: 10px !important;
+  margin: 2px 6px !important;
+  padding: 6px 10px !important;
+  transition: all 0.2s ease !important;
+}
+
+li[is="folder-tree-row"]>.container:hover,
+#calendar-list li:hover {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  transform: translateX(2px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+li.selected>.container,
+#calendar-list li.selected {
+  background: linear-gradient(90deg, rgba(74, 158, 255, 0.25), rgba(74, 158, 255, 0.15)) !important;
+  border-left: 3px solid var(--accent-blue) !important;
+  box-shadow: 0 4px 12px rgba(74, 158, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+}
+
+/* Folder icons */
+.folder-icon {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3)) !important;
+}
+
+/* ========== MESSAGE LIST (THREAD CARDS) ========== */
+#threadTree {
+  background: transparent !important;
+}
+
+tr[is="thread-card"] {
+  background: transparent !important;
+  border: none !important;
+  appearance: none !important;
+}
+
+.thread-card-container,
+.card-container,
+.card-layout {
+  background: var(--glass-dark-card) !important;
+  backdrop-filter: blur(20px) !important;
+  border: var(--glass-border) !important;
+  border-radius: 12px !important;
+  margin: 5px 10px !important;
+  padding: 12px 14px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+tr[is="thread-card"]:hover .thread-card-container {
+  background: var(--glass-dark-card-hover) !important;
+  transform: translateY(-2px) scale(1.005) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25),
+    0 0 16px rgba(74, 158, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(74, 158, 255, 0.3) !important;
+}
+
+tr[is="thread-card"].selected .thread-card-container {
+  background: var(--glass-dark-selected) !important;
+  border: 1px solid var(--accent-blue) !important;
+  box-shadow: 0 8px 24px rgba(74, 158, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Card text elements */
+.thread-card-subject {
+  font-weight: 600 !important;
+  color: var(--text-primary) !important;
+  font-size: 14px !important;
+}
+
+.thread-card-correspondents {
+  font-weight: 700 !important;
+  color: var(--accent-blue) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+}
+
+.thread-card-date {
+  color: var(--text-secondary) !important;
+  font-size: 12px !important;
+}
+
+/* Unread indicator */
+.thread-card-container[data-properties~="unread"] {
+  border-left: 3px solid var(--accent-blue) !important;
+  box-shadow: 0 0 12px var(--accent-glow) !important;
+}
+
+/* ========== SEARCH BAR & INPUTS ========== */
+global-search-bar,
+input,
+textarea,
+search-textbox,
+.input-field {
+  background: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 10px !important;
+  color: var(--text-primary) !important;
+  padding: 8px 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+global-search-bar:focus-within,
+input:focus,
+textarea:focus {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: var(--accent-blue) !important;
+  box-shadow: 0 0 0 3px var(--accent-glow),
+    0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Placeholder text */
+::placeholder {
+  color: var(--text-dim) !important;
+  opacity: 0.7 !important;
+}
+
+/* ========== AGENDA & TODAY PANE ========== */
+#agenda-container,
+#agenda-panel,
+#todo-tab-panel,
+#minimonth-pane,
+#calendar-task-tree {
+  background-color: transparent !important;
+}
+
+#agenda-toolbar {
+  background-color: var(--glass-dark-header) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: var(--glass-border) !important;
+}
+
+.agenda-listitem {
+  background: var(--glass-dark-card) !important;
+  backdrop-filter: blur(15px) !important;
+  margin: 6px 10px !important;
+  border-radius: 10px !important;
+  border: var(--glass-border) !important;
+  padding: 10px !important;
+  transition: all 0.2s ease !important;
+}
+
+.agenda-listitem:hover {
+  background: var(--glass-dark-card-hover) !important;
+  transform: translateX(3px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Minimonth */
+.minimonth-month-box {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+}
+
+.minimonth-day {
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.minimonth-day:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.minimonth-day[selected="true"],
+.minimonth-day[today="true"] {
+  background: linear-gradient(135deg, var(--accent-blue), rgba(74, 158, 255, 0.7)) !important;
+  color: white !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 12px var(--accent-glow) !important;
+}
+
+/* ========== SCROLLBARS ========== */
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-radius: 10px !important;
+  transition: background 0.2s !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* ========== SPLITTERS ========== */
+splitter {
+  background-color: transparent !important;
+  border: none !important;
+  width: 1px !important;
+  min-width: 1px !important;
+  background-image: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.08), transparent) !important;
+}
+
+splitter:hover {
+  background-image: linear-gradient(to right, transparent, var(--accent-blue), transparent) !important;
+}
+
+/* ========== CONTEXT MENUS ========== */
+menupopup,
+panel {
+  appearance: none !important;
+  background: rgba(30, 30, 38, 0.95) !important;
+  backdrop-filter: blur(40px) saturate(140%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset !important;
+  padding: 6px !important;
+}
+
+menuitem,
+menu {
+  color: var(--text-primary) !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  transition: all 0.15s ease !important;
+}
+
+menuitem:hover,
+menu:hover {
+  background: linear-gradient(90deg, rgba(74, 158, 255, 0.2), rgba(74, 158, 255, 0.1)) !important;
+  color: white !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+menuseparator {
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  margin: 4px 8px !important;
+}
+
+/* ========== TABS ========== */
+.tabmail-tab {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 8px 8px 0 0 !important;
+  margin: 0 2px !important;
+  padding: 8px 16px !important;
+  transition: all 0.2s ease !important;
+}
+
+.tabmail-tab:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.tabmail-tab[selected="true"] {
+  background: var(--glass-dark-elevated) !important;
+  border-bottom: 2px solid var(--accent-blue) !important;
+  box-shadow: 0 -2px 8px rgba(74, 158, 255, 0.2) !important;
+}
+
+/* ========== NOTIFICATIONS ========== */
+notification,
+.notification-bar {
+  background: var(--glass-dark-elevated) !important;
+  backdrop-filter: blur(20px) !important;
+  border: var(--glass-border) !important;
+  border-radius: 10px !important;
+  margin: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}

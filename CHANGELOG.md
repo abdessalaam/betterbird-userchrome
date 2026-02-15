@@ -2,7 +2,7 @@
 
 All notable changes will be documented here.
 
-## [1.0.0] - 2026-02-15
+## [0.0.1] - 2026-02-15
 
 ### Added
 - Initial `userChrome.css`

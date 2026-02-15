@@ -1,12 +1,10 @@
 # Modern Dark Glassmorphic theme for Betterbird & Thunderbird  
 
-**Custom `userChrome.css` and `userContent.css` for Betterbird; should also be compatible with Thunderbird **
+**Custom `userChrome.css` and `userContent.css` for Betterbird; should also be compatible with Thunderbird**
 
 ## What is `betterbird-userchrome`  
 
-Custom `userChrome.css` and `userContent.css` for Betterbird, fully compatible with Thunderbird.
-
-This repository provides a modular, community-maintained CSS setup to customise the Betterbird interface, layout, and content styling using native `userChrome.css` and `userContent.css`. 
+This repository provides a modular, community-maintained CSS setup to customise the Betterbird interface, layout, and content styling using custom `userChrome.css` and `userContent.css` for Betterbird, that should hopefully be fully compatible with Thunderbird.  
 
 ***Feel free to contribute!***  
 
